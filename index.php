@@ -12,7 +12,7 @@ $mahasiswa = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <div class="area">
-        <ul class="ribbons">
+        <ul class="hearts">
             <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
         </ul>
     </div>
