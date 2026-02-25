@@ -1,3 +1,13 @@
+<?php
+require 'connection.php';
+
+try {
+    $stmt = $pdo->query("SELECT * FROM mahasiswa");
+    $mahasiswa = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Error: " . $e->getMessage());
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
