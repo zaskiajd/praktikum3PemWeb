@@ -15,17 +15,34 @@ exit;
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Tambah Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h2>Tambah Mahasiswa</h2>
-<form method="POST" action="">
-<label>NIM:</label><br>
-<input type="text" name="npm" required><br>
-<label>Nama:</label><br>
-<input type="text" name="nama" required><br>
-<label>Jurusan:</label><br>
-<input type="text" name="jurusan" required><br><br>
-<button type="submit">Simpan Data</button>
-<a href="index.php">Batal</a>
-</form>
+    <div class="container" style="max-width: 500px;">
+        <h2>Tambah Mahasiswa</h2>
+        <form method="POST" action="">
+            <div class="form-group">
+                <label>NIM</label>
+                <input type="text" name="npm" placeholder="Masukkan NIM" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" name="nama" placeholder="Masukkan Nama" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Jurusan</label>
+                <input type="text" name="jurusan" placeholder="Masukkan Jurusan" required>
+            </div>
+            
+            <div style="margin-top: 10px;">
+                <button type="submit" class="btn">Simpan Data</button>
+                <a href="index.php" class="btn btn-secondary">Batal</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

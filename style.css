@@ -1,0 +1,136 @@
+:root {
+    --peach-light: #FFF5F0;
+    --peach-medium: #FFDAB9;
+    --peach-dark: #FFAB91;
+    --peach-accent: #FF8A65;
+    --text-color: #5D4037;
+    --white: #ffffff;
+    --shadow: 0 8px 30px rgba(255, 171, 145, 0.15);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--peach-light);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 900px;
+}
+
+h2 {
+    color: var(--peach-dark);
+    margin-top: 0;
+    font-weight: 600;
+    border-bottom: 2px solid var(--peach-medium);
+    padding-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--peach-accent);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--peach-dark);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--peach-dark);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--peach-accent);
+    color: white;
+}
+
+.btn-add {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th {
+    background-color: var(--peach-medium);
+    color: var(--text-color);
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--peach-light);
+}
+
+tr:hover {
+    background-color: var(--peach-light);
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input[type="text"] {
+    padding: 12px;
+    border: 1px solid var(--peach-medium);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--peach-dark);
+}
+
+.action-links a {
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+.btn-secondary {
+    background-color: #E0E0E0;
+    color: #616161;
+}
+
+.btn-secondary:hover {
+    background-color: #BDBDBD;
+}

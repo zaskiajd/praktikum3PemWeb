@@ -19,20 +19,34 @@ exit;
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Edit Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h2>Edit Mahasiswa</h2>
-<form method="POST" action="">
-<label>NIM:</label><br>
-<input type="text" name="npm" value="<?= $data['npm']; ?>" required><br>
-<label>Nama:</label><br>
-<input type="text" name="nama" value="<?= $data['nama']; ?>"
-required><br>
-<label>Jurusan:</label><br>
-<input type="text" name="jurusan" value="<?= $data['jurusan']; ?>"
-required><br><br>
-
-<button type="submit">Update Data</button>
-<a href="index.php">Batal</a>
-</form>
+    <div class="container" style="max-width: 500px;">
+        <h2>Edit Mahasiswa</h2>
+        <form method="POST" action="">
+            <div class="form-group">
+                <label>NIM</label>
+                <input type="text" name="npm" value="<?= htmlspecialchars($data['npm']); ?>" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" name="nama" value="<?= htmlspecialchars($data['nama']); ?>" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Jurusan</label>
+                <input type="text" name="jurusan" value="<?= htmlspecialchars($data['jurusan']); ?>" required>
+            </div>
+            
+            <div style="margin-top: 10px;">
+                <button type="submit" class="btn">Update Data</button>
+                <a href="index.php" class="btn btn-secondary">Batal</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
