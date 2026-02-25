@@ -26,47 +26,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tambah Mahasiswa</title>
+    <title>Tambah Mahasiswa - Coquette</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="area">
-        <ul class="circles">
+        <ul class="ribbons">
             <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
         </ul>
     </div>
 
-    <div class="container" style="max-width: 500px;">
+    <div class="container" style="max-width: 550px; text-align: center;">
         <div class="ribbon-wrapper">
-            <h2 class="ribbon">Tambah Data</h2>
+            <h2 class="ribbon-3d">Tambah Data</h2>
         </div>
         
         <?php if (!empty($error_message)): ?>
-            <div style="background-color: #ffcdd2; color: #b71c1c; padding: 10px; border-radius: 5px; margin-bottom: 20px; text-align: center;">
+            <div style="background-color: #ffebf0; color: #b71c1c; padding: 15px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #f8bbd0;">
                 <?= $error_message; ?>
             </div>
         <?php endif; ?>
 
         <form method="POST" action="">
             <div class="form-group">
-                <label>NIM</label>
-                <input type="text" name="npm" placeholder="Masukkan NIM" required value="<?= isset($_POST['npm']) ? htmlspecialchars($_POST['npm']) : '' ?>">
+                <label>Nomor Induk Mahasiswa (NIM)</label>
+                <input type="text" name="npm" placeholder="Contoh: 2021001" required value="<?= isset($_POST['npm']) ? htmlspecialchars($_POST['npm']) : '' ?>">
             </div>
             
             <div class="form-group">
                 <label>Nama Lengkap</label>
-                <input type="text" name="nama" placeholder="Masukkan Nama" required value="<?= isset($_POST['nama']) ? htmlspecialchars($_POST['nama']) : '' ?>">
+                <input type="text" name="nama" placeholder="Contoh: Princess Rose" required value="<?= isset($_POST['nama']) ? htmlspecialchars($_POST['nama']) : '' ?>">
             </div>
             
             <div class="form-group">
                 <label>Jurusan</label>
-                <input type="text" name="jurusan" placeholder="Masukkan Jurusan" required value="<?= isset($_POST['jurusan']) ? htmlspecialchars($_POST['jurusan']) : '' ?>">
+                <input type="text" name="jurusan" placeholder="Contoh: Desain Fashion" required value="<?= isset($_POST['jurusan']) ? htmlspecialchars($_POST['jurusan']) : '' ?>">
             </div>
             
-            <div style="margin-top: 20px; text-align: center;">
-                <button type="submit" class="btn">Simpan Data</button>
-                <a href="index.php" class="btn" style="background-color: #b0bec5; margin-left: 10px;">Batal</a>
+            <div style="margin-top: 30px;">
+                <button type="submit" class="btn btn-add">✧ Simpan ✧</button>
+                <a href="index.php" class="btn" style="border-color: #ddd; margin-left: 15px;">Batal</a>
             </div>
         </form>
     </div>

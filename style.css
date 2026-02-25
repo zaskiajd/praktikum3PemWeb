@@ -1,21 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;500;700&display=swap');
+
 :root {
-    --peach-light: #FFF5F0;
-    --peach-medium: #FFDAB9;
-    --peach-dark: #FFAB91;
-    --peach-accent: #FF8A65;
-    --text-color: #5D4037;
+    --coquette-cream: #FFF9F9;
+    --coquette-pink-soft: #FDE2E4;
+    --coquette-pink-medium: #FAD2E1;
+    --coquette-accent: #E29578; /* Muted salmon */
+    --ribbon-main: #FFB7C5;
+    --ribbon-dark: #E68FA0;
+    --text-vintage: #5D4037;
     --white: #ffffff;
-    --shadow: 0 8px 30px rgba(255, 171, 145, 0.2);
-    --bubble-color: rgba(255, 255, 255, 0.6);
-    --ribbon-bg: #FF8A65;
-    --ribbon-shadow: #E64A19;
+    --shadow-soft: 0 10px 25px rgba(226, 149, 120, 0.1);
 }
 
 body {
-    font-family: 'Comic Neue', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fff0f5; /* Fallback */
-    background: linear-gradient(to bottom right, #fff5f0, #ffdab9); /* Peach Gradient */
-    color: var(--text-color);
+    font-family: 'Quicksand', sans-serif;
+    background: var(--coquette-cream);
+    color: var(--text-vintage);
     margin: 0;
     padding: 0;
     display: flex;
@@ -26,246 +26,218 @@ body {
     position: relative;
 }
 
-/* Background Bubbles Animation */
+/* Background Coquette Ribbons (Pita Melayang) */
 .area {
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     top: 0;
     left: 0;
-    overflow: hidden;
 }
 
-.circles {
+.ribbons {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     margin: 0;
     padding: 0;
 }
 
-.circles li {
+.ribbons li {
     position: absolute;
     display: block;
     list-style: none;
+    width: 30px;
+    height: 20px;
+    background: var(--ribbon-main);
+    opacity: 0.4;
+    animation: floatRibbon 20s linear infinite;
+    bottom: -100px;
+    border-radius: 2px;
+}
+
+/* Membuat bentuk pita sederhana dengan CSS */
+.ribbons li::before, .ribbons li::after {
+    content: '';
+    position: absolute;
     width: 20px;
     height: 20px;
-    background: var(--bubble-color);
-    animation: animate 25s linear infinite;
-    bottom: -150px;
-    border-radius: 50%; /* Always round bubbles */
+    background: var(--ribbon-main);
+    border-radius: 50% 50% 0 50%;
+    top: -10px;
+    left: -10px;
+    transform: rotate(45deg);
+}
+.ribbons li::after {
+    border-radius: 50% 50% 50% 0%;
+    left: 20px;
+    transform: rotate(-45deg);
 }
 
-.circles li:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
-.circles li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
-.circles li:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
-.circles li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
-.circles li:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
-.circles li:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
-.circles li:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
-.circles li:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
-.circles li:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
-.circles li:nth-child(10) { left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s; }
-
-@keyframes animate {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-        border-radius: 50%;
-    }
-    100% {
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-        border-radius: 50%;
-    }
+@keyframes floatRibbon {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+    100% { transform: translateY(-1100px) rotate(360deg); opacity: 0; }
 }
 
-/* Main Container */
+.ribbons li:nth-child(1) { left: 10%; width: 40px; height: 15px; animation-delay: 0s; }
+.ribbons li:nth-child(2) { left: 20%; width: 30px; height: 10px; animation-delay: 2s; animation-duration: 15s; }
+.ribbons li:nth-child(3) { left: 70%; animation-delay: 4s; }
+.ribbons li:nth-child(4) { left: 40%; width: 50px; animation-duration: 18s; }
+.ribbons li:nth-child(5) { left: 65%; animation-delay: 0s; }
+.ribbons li:nth-child(6) { left: 85%; width: 45px; animation-delay: 3s; }
+
+/* Container & Typography */
 .container {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 40px;
-    border-radius: 25px;
-    box-shadow: var(--shadow);
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-soft);
     width: 100%;
-    max-width: 900px;
-    margin-top: 50px;
+    max-width: 950px;
+    margin-top: 60px;
     position: relative;
     z-index: 1;
-    border: 3px solid #fff;
-    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
 }
 
-/* Ribbon Header Style */
-.ribbon-wrapper {
-    width: 100%; 
-    position: relative;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-h2.ribbon {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    text-transform: uppercase;
-    text-align: center;
-    background: var(--ribbon-bg);
-    margin: 0 auto;
-    padding: 15px 50px;
+h2.ribbon-3d {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--ribbon-main), var(--ribbon-dark));
+    padding: 20px 60px;
     position: relative;
     display: inline-block;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    border-radius: 5px; /* Slight roundness */
+    margin: -80px auto 40px; /* Floating look */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform-style: preserve-3d;
+    border-radius: 4px;
 }
 
-h2.ribbon:before, h2.ribbon:after {
+/* Efek Pita 3D Lipat */
+h2.ribbon-3d::before, h2.ribbon-3d::after {
     content: "";
     position: absolute;
-    display: block;
-    bottom: -10px;
-    border: 15px solid var(--ribbon-shadow);
+    top: 25px;
+    border: 30px solid var(--ribbon-dark);
     z-index: -1;
 }
 
-h2.ribbon:before {
-    left: -20px;
-    border-right-width: 20px;
+h2.ribbon-3d::before {
+    left: -40px;
     border-left-color: transparent;
+    transform: translateZ(-1px);
+    filter: brightness(0.9);
 }
 
-h2.ribbon:after {
-    right: -20px;
-    border-left-width: 20px;
+h2.ribbon-3d::after {
+    right: -40px;
     border-right-color: transparent;
+    transform: translateZ(-1px);
+    filter: brightness(0.9);
 }
 
-/* Button Styles */
+/* Tombol Interaktif */
 .btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: var(--peach-accent);
-    color: white;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1em;
+    padding: 12px 35px;
+    background: var(--white);
+    color: var(--ribbon-dark);
+    border: 2px solid var(--ribbon-main);
     border-radius: 50px;
-    border: 2px solid white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9em;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .btn:hover {
-    background-color: var(--peach-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+    background: var(--ribbon-main);
+    color: white;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 183, 197, 0.4);
 }
 
 .btn-add {
-    margin-bottom: 25px;
-    background-color: #FF7043;
+    font-weight: 700;
+    border-width: 3px;
+    letter-spacing: 1px;
 }
 
-/* Table Styles */
+/* Table Style (Vintage & Soft) */
 table {
     width: 100%;
-    border-collapse: separate; 
-    border-spacing: 0 10px;
-    margin-top: 10px;
+    border-collapse: separate;
+    border-spacing: 0 15px;
 }
 
 th {
-    background-color: transparent;
-    color: var(--peach-accent);
-    padding: 15px;
-    text-align: left;
+    font-family: 'Playfair Display', serif;
+    color: var(--text-vintage);
     text-transform: uppercase;
-    font-size: 0.85em;
-    letter-spacing: 1px;
-    border-bottom: 2px solid var(--peach-medium);
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    padding: 10px;
 }
 
 td {
-    background-color: #fff;
-    padding: 15px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-}
-
-tr td:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-left: 1px solid #eee;
-    font-weight: bold;
-    color: var(--peach-accent);
-}
-
-tr td:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-right: 1px solid #eee;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    transition: all 0.3s ease;
+    border-top: 1px solid rgba(250, 210, 225, 0.5);
+    border-bottom: 1px solid rgba(250, 210, 225, 0.5);
 }
 
 tr:hover td {
-    background-color: #FFF3E0;
-    transform: scale(1.01); 
-    transition: transform 0.2s ease;
+    background: var(--white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    transform: scale(1.01);
 }
 
-/* Form Styles */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+tr td:first-child { border-radius: 15px 0 0 15px; border-left: 1px solid rgba(250, 210, 225, 0.5); }
+tr td:last-child { border-radius: 0 15px 15px 0; border-right: 1px solid rgba(250, 210, 225, 0.5); }
 
+/* Form Elements */
 .form-group {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px dashed var(--peach-medium);
-}
-
-label {
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--peach-accent);
-    text-transform: uppercase;
-    font-size: 0.8em;
-    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--coquette-pink-soft);
 }
 
 input[type="text"] {
-    padding: 12px;
-    border: 2px solid #eee;
-    border-radius: 10px;
-    outline: none;
-    font-size: 1em;
-    transition: border-color 0.3s ease;
-    background-color: #FAFAFA;
+    background: var(--white);
+    border: 1px solid var(--coquette-pink-soft);
+    border-radius: 12px;
+    padding: 15px;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text-vintage);
 }
 
 input[type="text"]:focus {
-    border-color: var(--peach-accent);
-    background-color: #fff;
+    border-color: var(--ribbon-main);
+    box-shadow: 0 0 10px rgba(255, 183, 197, 0.3);
 }
 
 .action-links a {
-    margin: 0 5px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.85em;
-    border: 1px solid transparent;
+    color: var(--ribbon-dark);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    margin: 0 10px;
+    transition: opacity 0.3s;
 }
 
 .action-links a:hover {
-    background-color: var(--peach-light);
-    border-color: var(--peach-medium);
+    opacity: 0.7;
+    text-decoration: underline;
 }
