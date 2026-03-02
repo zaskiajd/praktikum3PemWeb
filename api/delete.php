@@ -7,12 +7,12 @@ http_response_code(405);
 echo json_encode(["message" => "Method tidak diizinkan."]);
 exit;
 }
-include_once '../config/database.php';
+include_once '../config/Database.php';
 
-include_once '../models/mahasiswa.php';
-$database = new database();
+include_once '../models/Mahasiswa.php';
+$database = new Database();
 $db = $database->getConnection();
-$mahasiswa = new mahasiswa($db);
+$mahasiswa = new Mahasiswa($db);
 $data = json_decode(file_get_contents("php://input"));
 $mahasiswa->id = $data->id;
 if($mahasiswa->delete()) {
