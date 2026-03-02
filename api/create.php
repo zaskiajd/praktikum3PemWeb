@@ -9,10 +9,10 @@ exit;
 }
 
 include_once '../config/database.php';
-include_once '../models/Mahasiswa.php';
+include_once '../models/mahasiswa.php';
 $database = new database();
 $db = $database->getConnection();
-$mahasiswa = new Mahasiswa($db);
+$mahasiswa = new mahasiswa($db);
 $data = json_decode(file_get_contents("php://input"));
 if(!empty($data->npm) && !empty($data->nama) && !empty($data->jurusan)) {
 $mahasiswa->npm = $data->npm;
@@ -20,7 +20,7 @@ $mahasiswa->nama = $data->nama;
 $mahasiswa->jurusan = $data->jurusan;
 if($mahasiswa->create()) {
 http_response_code(201); // Created
-echo json_encode(array("message" => "Mahasiswa berhasil ditambahkan."));
+echo json_encode(array("message" => "mahasiswa berhasil ditambahkan."));
 } else {
 http_response_code(503); // Service Unavailable
 echo json_encode(array("message" => "Gagal menambahkan

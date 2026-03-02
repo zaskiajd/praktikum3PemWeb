@@ -9,15 +9,15 @@ exit;
 }
 include_once '../config/database.php';
 
-include_once '../models/Mahasiswa.php';
+include_once '../models/mahasiswa.php';
 $database = new database();
 $db = $database->getConnection();
-$mahasiswa = new Mahasiswa($db);
+$mahasiswa = new mahasiswa($db);
 $data = json_decode(file_get_contents("php://input"));
 $mahasiswa->id = $data->id;
 if($mahasiswa->delete()) {
 http_response_code(200);
-echo json_encode(array("message" => "Mahasiswa berhasil dihapus."));
+echo json_encode(array("message" => "mahasiswa berhasil dihapus."));
 } else {
 http_response_code(503);
 echo json_encode(array("message" => "Gagal menghapus mahasiswa."));

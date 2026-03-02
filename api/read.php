@@ -8,11 +8,11 @@ echo json_encode(["message" => "Method tidak diizinkan."]);
 exit;
 }
 include_once '../config/database.php';
-include_once '../models/Mahasiswa.php';
+include_once '../models/mahasiswa.php';
 
 $database = new database();
 $db = $database->getConnection();
-$mahasiswa = new Mahasiswa($db);
+$mahasiswa = new mahasiswa($db);
 $stmt = $mahasiswa->read();
 $num = $stmt->rowCount();
 if($num > 0) {

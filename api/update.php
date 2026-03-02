@@ -9,10 +9,10 @@ exit;
 
 }
 include_once '../config/database.php';
-include_once '../models/Mahasiswa.php';
+include_once '../models/mahasiswa.php';
 $database = new database();
 $db = $database->getConnection();
-$mahasiswa = new Mahasiswa($db);
+$mahasiswa = new mahasiswa($db);
 $data = json_decode(file_get_contents("php://input"));
 $mahasiswa->id = $data->id;
 $mahasiswa->npm = $data->npm;
