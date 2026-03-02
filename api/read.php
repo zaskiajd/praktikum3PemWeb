@@ -7,10 +7,10 @@ http_response_code(405);
 echo json_encode(["message" => "Method tidak diizinkan."]);
 exit;
 }
-include_once '../config/Database.php';
+include_once '../config/database.php';
 include_once '../models/Mahasiswa.php';
 
-$database = new Database();
+$database = new database();
 $db = $database->getConnection();
 $mahasiswa = new Mahasiswa($db);
 $stmt = $mahasiswa->read();

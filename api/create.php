@@ -8,9 +8,9 @@ echo json_encode(["message" => "Method tidak diizinkan."]);
 exit;
 }
 
-include_once '../config/Database.php';
+include_once '../config/database.php';
 include_once '../models/Mahasiswa.php';
-$database = new Database();
+$database = new database();
 $db = $database->getConnection();
 $mahasiswa = new Mahasiswa($db);
 $data = json_decode(file_get_contents("php://input"));
